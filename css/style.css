@@ -77,12 +77,12 @@ body {
     position: relative;
 	padding: 0 0 10px 0;
 }
-.line:before {
-    position: absolute; display: block; content: '';
-    border-bottom: 1px solid #af8052;
-    height: 100%; width: 100%;
-    box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
-}
+/*.line:before {*/
+/*    position: absolute; display: block; content: '';*/
+/*    border-bottom: 1px solid #af8052;*/
+/*    height: 100%; width: 100%;*/
+/*    box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;*/
+/*}*/
 .line.last{
 	margin-bottom: 0;
     border-bottom: 0px solid #e7b786;
