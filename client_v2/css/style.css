@@ -1,0 +1,123 @@
+@charset "utf-8";
+
+/* # reset
+---------------------------------------------------------------------------- */
+html {
+	overflow-y: scroll;
+}
+body,
+h1,h2,h3,h4,h5,h6,
+p,ul,ol,dl,dt,dd,li,table,th,td,
+form,address,pre,caption,cite,code,dfn,var {
+	font-size: 100%;
+	font-style: normal;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+img { 
+	border: 0; 
+	vertical-align: bottom;
+}
+table { 
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+caption, th { text-align: left; }
+ol, ul { list-style: none; } 
+body { 
+	color: #fff;
+	font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+	line-height: normal;
+}
+.clearfix {
+	zoom: 1;
+}
+.clearfix:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+
+
+/* # style
+---------------------------------------------------------------------------- */
+.wrapper{
+	padding: 20px;
+}
+.content{
+	background: #efcb8c;
+    border: 10px solid #bd8652;
+    position: relative;
+	border-radius: 20px;
+	box-shadow: 0 0 20px 0 #000;
+}
+.content:before {
+    position: absolute; display: block; content: '';
+    border: 10px solid #5d342c;
+	border-radius: 6px;
+    height: 100%; width: 100%;
+    box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+.contentInner{
+	margin: 20px;
+	background: #cd9a63;
+	border-radius: 10px;
+	padding: 10px;
+	box-shadow: 0 0 5px 0 #333 inset;
+}
+.line{
+	margin: 0 0 10px 0;
+    border-bottom: 1px solid #e7b786;
+    position: relative;
+	padding: 0 0 10px 0;
+}
+.line:before {
+    position: absolute; display: block; content: '';
+    border-bottom: 1px solid #af8052;
+    height: 100%; width: 100%;
+    box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+.line.last{
+	margin-bottom: 0;
+    border-bottom: 0px solid #e7b786;
+	padding: 0;
+}
+.line.last:before {
+    border-bottom: 0px solid #af8052;
+}
+.line table{
+	width: 100%;
+}
+.line table tr td.imgGame{
+	width: 50px;
+}
+.line table tr td.button{
+	width: 75px;
+}
+.line table tr td.button a{
+	background: url(../images/button_none.png) no-repeat 0 0;
+	display: block;
+	text-align: center;
+	width: 75px;
+	height: 31px;
+	line-height: 35px;
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+}
+.line table tr td.text{
+	padding: 0 10px;
+	text-align: center;
+}
+.close{
+	position: absolute;
+	right: -20px;
+	top: -20px;
+}
+
