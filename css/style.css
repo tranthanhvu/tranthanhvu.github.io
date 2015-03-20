@@ -48,26 +48,31 @@ body {
 /* # style
 ---------------------------------------------------------------------------- */
 .wrapper{
-	padding: 20px;
+	padding: 12px;
+}
+.border {
+    background: solid rgba(0, 0, 0, .5);
+    border: 5px solid rgba(0, 0, 0, .5);
+    position: relative;
+    border-radius: 20px;
 }
 .content{
 	background: #efcb8c;
-    border: 10px solid #bd8652;
+    border: 5px solid #bd8652;
     position: relative;
-	border-radius: 20px;
-	box-shadow: 0 0 20px 0 #000;
+	border-radius: 15px;
 }
 .content:before {
     position: absolute; display: block; content: '';
-    border: 10px solid #5d342c;
-	border-radius: 6px;
+    border: 5px solid #5d342c;
+	border-radius: 10px;
     height: 100%; width: 100%;
     box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
 }
 .contentInner{
-	margin: 20px;
+	margin: 10px;
 	background: #cd9a63;
-	border-radius: 10px;
+	border-radius: 5px;
 	padding: 10px;
 	box-shadow: 0 0 5px 0 #333 inset;
 }
