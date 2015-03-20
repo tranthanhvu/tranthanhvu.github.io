@@ -51,6 +51,7 @@ body {
 	padding: 12px;
 }
 .border {
+    margin-top: 10px;
     background: solid rgba(0, 0, 0, .5);
     border: 5px solid rgba(0, 0, 0, .5);
     position: relative;
