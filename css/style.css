@@ -67,15 +67,16 @@ body {
 .content:before {
     position: absolute; display: block; content: '';
     border: 5px solid #5d342c;
-	border-radius: 10px;
+	border-radius: 11px;
     height: 100%; width: 100%;
     box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
 	box-shadow: 0 0 5px 0 #fff inset;
 }
 .contentInner{
 	margin: 10px;
+    margin-top: 30px;
 	background: #cd9a63;
-	border-radius: 5px;
+	border-radius: 10px;
 	padding: 10px;
 	box-shadow: 0 0 5px 0 #333 inset;
 }
