@@ -119,6 +119,7 @@ body {
 	color: #fff;
 	text-decoration: none;
 	font-weight: bold;
+    background-color:transparent;
 }
 .line table tr td.button a:hover{
     text-decoration:none;
@@ -138,4 +139,5 @@ body {
     text-decoration:none;
     font-weight:bold;
     box-shadow:none;
+    background-color: transparent;
 }
