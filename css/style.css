@@ -120,6 +120,10 @@ body {
 	text-decoration: none;
 	font-weight: bold;
 }
+.line table tr td.button a:hover{
+    text-decoration:none;
+    font-weight:bold;
+}
 .line table tr td.text{
 	padding: 0 10px;
 	text-align: center;
