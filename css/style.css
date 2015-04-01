@@ -123,6 +123,7 @@ body {
 .line table tr td.button a:hover{
     text-decoration:none;
     font-weight:bold;
+    box-shadow:none;
 }
 .line table tr td.text{
 	padding: 0 10px;
@@ -133,4 +134,8 @@ body {
 	right: -20px;
 	top: -20px;
 }
-
+.close a:hover {
+    text-decoration:none;
+    font-weight:bold;
+    box-shadow:none;
+}
