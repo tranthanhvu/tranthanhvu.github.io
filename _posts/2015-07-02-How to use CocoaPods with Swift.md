@@ -3,7 +3,7 @@ layout: post
 title: How to use CocoaPods with Swift
 categories: [Development]
 tags: [Swift]
-description: CocoaPods dùng để quản lý các thành phần liên quan (cụ thể là lib, framework) cho project cocoa.
+description: Các bước cài đặt Cocoapods
 ---
 
 Có thể bạn đã từng làm việc hoặc nghe qua về Cocoapods, Chưa nghe thì cũng chả sao :D CocoaPods dùng để quản lý các thành phần liên quan (cụ thể là lib, framework) cho project cocoa.

@@ -1,9 +1,9 @@
 ---
 layout: post
-title: How to use CocoaPods with Swift
+title: How to detect Android Simulator
 categories: [Development]
-tags: [Swift]
-description: CocoaPods dùng để quản lý các thành phần liên quan (cụ thể là lib, framework) cho project cocoa.
+tags: [Android]
+description: Vấn đề về việc detect simulator, có thể sử dụng đoạn code sau, mặc dùng không hoàn toàn đúng trong tất cả các trường hợp (thêm đk để chính xác hơn, mà simulator nhiều quá chưa thêm hết được)
 ---
 
 Để build sản phẩn android thường ta hay build trên simulator test trước khi deliver để test trên real device.
@@ -24,25 +24,67 @@ Vấn đề về việc detect simulator, có thể sử dụng đoạn code sau
 {% highlight java %}
 public static boolean IsSimulator() {
         boolean result = false;
-        Log.d("G6Pig", "Fingerprint: " + Build.FINGERPRINT + " Model: " + Build.MODEL + 
-                " Manufacturer: " + Build.MANUFACTURER);
-        result = 
-                Build.FINGERPRINT.contains("generic") ||
-                Build.FINGERPRINT.contains("unknown") ||
-                Build.MODEL.contains("google_sdk") ||
-                Build.MODEL.contains("Android SDK built for x86") ||
-                Build.MODEL.contains("VirtualBox") ||
-                Build.MODEL.contains("Droid4X") ||
-                Build.MANUFACTURER.contains("Genymotion");
         
-        if (result == false) {
-            Log.d("G6Pig", "Brand: " + Build.BRAND + " Device: " + Build.DEVICE);
-            result |= Build.BRAND.contains("generic") && Build.DEVICE.contains("generic");
+        String fingerPrint = Build.FINGERPRINT;
+        if (result == false && fingerPrint != null) {
+            Log.d("G6Pig", "__Fingerprint: " + fingerPrint);
+            result = fingerPrint.contains("generic") || fingerPrint.contains("unknown");
         }
         
-        if (result == false) {
-            Log.d("G6Pig", "Product: " + Build.PRODUCT);
-            result |= Build.PRODUCT.matches(".*_?sdk_?.*") || Build.PRODUCT.contains("Droid4X");
+        String model = Build.MODEL;
+        if (result == false && model != null) {
+            Log.d("G6Pig", "__Model: " + model);
+            result = model.contains("google_sdk") ||
+                    model.contains("Android SDK built for x86") ||
+                    model.contains("VirtualBox") ||
+                    model.contains("Droid4X");
+        }
+        
+        String manufacturer = Build.MANUFACTURER;
+        if (result == false && manufacturer != null) {
+            Log.d("G6Pig", "__Manufacturer: " + manufacturer);
+            result = manufacturer.contains("Genymotion");
+        }
+        
+        String brand = Build.BRAND;
+        String device = Build.DEVICE;
+        if (result == false && brand != null && device != null) {
+            Log.d("G6Pig", "__Brand: " + brand + " __Device: " + device);
+            result = (brand.contains("generic") && device.contains("generic"));
+        }
+        
+        String product = Build.PRODUCT;
+        if (result == false && product != null) {
+            Log.d("G6Pig", "__Product: " + product);
+            result = product.matches(".*_?sdk_?.*") || product.contains("Droid4X");
+        }
+        
+        if (G6PigUtils.m_activity != null) {
+            try {
+                boolean isSupportEs2 = isSupportGLES20((ActivityManager)G6PigUtils.m_activity.getSystemService(Context.ACTIVITY_SERVICE));
+                if (isSupportEs2) {
+                    Log.d("G6Pig", "__isSupportEs2: " + isSupportEs2);
+                    String vendor = GLES20.glGetString(GLES20.GL_VENDOR);
+                    if (result == false && vendor != null) {
+                        Log.d("G6Pig", "__Vendor: " + vendor);
+                        Log.d("G6Pig", "__Renderer: " + GLES20.glGetString(GLES20.GL_RENDERER));
+                        Log.d("G6Pig", "__Hardware: " + Build.HARDWARE);
+                        result = vendor.contains("BlueStacks");
+                    }   
+                } else {
+                    Log.d("G6Pig", "__isSupport Es10");
+                    String vendor = GLES10.glGetString(GLES10.GL_VENDOR);
+                    if (result == false && vendor != null) {
+                        Log.d("G6Pig", "__Vendor: " + vendor);
+                        Log.d("G6Pig", "__Renderer: " + GLES10.glGetString(GLES10.GL_RENDERER));
+                        Log.d("G6Pig", "__Hardware: " + Build.HARDWARE);
+                        result = vendor.contains("BlueStacks");
+                    }
+                }   
+            } catch (Exception e) {
+                // TODO: handle exception
+                e.printStackTrace();
+            }
         }
         
         return result;
